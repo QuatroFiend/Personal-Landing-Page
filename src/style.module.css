@@ -1,0 +1,153 @@
+.avatar img {
+    height: 100px;
+    width: 100px;
+    border-radius: 80%;
+    position: relative; /* Для корректного отображения тени */
+    overflow: hidden; /* Чтобы анимация не выходила за пределы кнопки */
+    box-shadow: 0 0 20px rgba(203, 177, 248, 0.4); /* Базовое свечение */
+    object-fit: cover;
+}
+
+.userName {
+    font-size: 28px;
+    color: white;
+    text-shadow: 0 0 5px rgba(184, 143, 255, 0.8); /* Базовое свечение текста */
+    transition: text-shadow 0.3s; /* Плавный переход для свечения текста */
+}
+
+
+.buttonsBlock {
+    padding-top: 21px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.linkedButton {
+    text-align: center;
+    background-color: transparent;
+    font-size: 20px;
+    width: 441px;
+    height: 44px;
+    color: #d68fff;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+    position: relative; /* Для корректного отображения тени */
+    overflow: hidden; /* Чтобы анимация не выходила за пределы кнопки */
+    box-shadow: 0 0 10px rgba(207, 173, 248, 0.5); /* Базовое свечение */
+}
+
+@media (max-width: 510px) {
+    .linkedButton {
+        width: 354px;
+
+    }
+}
+
+.linkedButton::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #c8a1f3 10%, transparent 10.01%);
+    background-size: 50% 50%;
+    z-index: 0;
+    transition: transform 0.5s;
+    transform: scale(0);
+}
+
+.linkedButton:hover::before {
+    transform: scale(1);
+}
+
+.linkedButton:hover {
+    background-color: #fff;
+    color: #9900ff;
+    box-shadow: 0 0 20px #ffffff; /* Увеличенное свечение при наведении */
+}
+
+.linkedButton:hover .icon {
+    fill: #d000ff;
+    transition: fill 0.3s;
+}
+
+.link {
+    color: #eee2fa;
+    text-decoration: none;
+    position: relative;
+    z-index: 1; /* Чтобы текст был выше анимации */
+    transition: color 0.3s, text-shadow 0.3s; /* Плавный переход для текста */
+    text-shadow: 0 0 4px rgba(199, 193, 229, 0.5); /* Базовое свечение текста */
+}
+
+.linkedButton:hover .link {
+    color: #c8a1f3;
+    text-shadow: 0 0 20px #ffffff; /* Увеличенное свечение текста при наведении */
+}
+
+.buttonContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1; /* Чтобы иконка была выше анимации */
+    text-shadow: 0 0 20px #ffffff;
+}
+
+.icon {
+    fill: #faf3ff;
+    height: 27px;
+    width: 27px;
+    transition: fill 0.3s, filter 0.3s; /* Плавный переход для иконки */
+    filter: drop-shadow(0 0 10px rgba(204, 146, 243, 0.5)); /* Базовое свечение иконки */
+}
+
+.linkedButton:hover .icon {
+    fill: #c8a1f3;
+    filter: drop-shadow(0 0 20px #ffffff); /* Увеличенное свечение иконки при наведении */
+}
+
+.footerSpan {
+    font-size: 27px;
+    color: white;
+    padding-top: 87px;
+}
+@keyframes blink {
+    0%, 49% {
+        opacity: 2;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes shine {
+    0% {
+        background-position: -200px;
+    }
+    100% {
+        background-position: 200px;
+    }
+}
+
+.blinkingText {
+    font-size: 28px;
+    color: white;
+    animation: blink 2s step-start infinite;
+    position: relative;
+    display: inline-block;
+}
+
+.shineText {
+    font-size: 28px;
+    color: white;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 10%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.1) 90%);
+    background-size: 200px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 2s linear infinite;
+}
